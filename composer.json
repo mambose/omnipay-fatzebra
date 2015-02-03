@@ -24,6 +24,7 @@
         "psr-4": { "Omnipay\\Fatzebra\\" : "src/" }
     },
     "require": {
+        "php": ">=5.3.0",
         "omnipay/common": "~2.0"
     },
     "require-dev": {
