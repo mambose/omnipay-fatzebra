@@ -174,5 +174,4 @@ class FatzebraGateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\Fatzebra\Message\RefundRequest', $parameters);
     }
-
 }
