@@ -10,7 +10,25 @@ use Guzzle\Http\EntityBody;
 /**
  * Fat Zebra Abstract REST Request
  *
+ * Test modes:
+ *
+ * There are two test modes in the Paystream system - one is a
+ * sandbox environment and the other is a test mode flag.
+ *
+ * The Sandbox Environment is an identical copy of the live environment
+ * which is 100% functional except for communicating with the banks.
+ *
+ * The Test Mode Flag is used to switch the live environment into
+ * test mode. If test: true is sent with your request your transactions
+ * will be executed in the live environment, but not communicate with
+ * the bank backends. This mode is useful for testing changes to your
+ * live website.
+ *
+ * Currently this class makes the assumption that if the testMode
+ * flag is set then the Sandbox Environment is being used.
+ *
  * @link http://www.paystream.com.au/developer-guides/
+ * @see \Omnipay\Fatzebra\FatzebraGateway
  */
 abstract class AbstractRestRequest extends \Omnipay\Common\Message\AbstractRequest
 {

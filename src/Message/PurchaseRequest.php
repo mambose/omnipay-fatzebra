@@ -73,7 +73,7 @@ class PurchaseRequest extends AbstractRestRequest
     {
         // An amount parameter is required.  All amounts are in
         // Australian dollars.
-        $this->validate('amount');
+        $this->validate('amount', 'transactionReference');
         $data = array(
             'amount'        => $this->getAmount(),
             'reference'     => $this->getTransactionReference(),
