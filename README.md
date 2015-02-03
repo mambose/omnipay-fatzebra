@@ -1,5 +1,4 @@
 # omnipay-fatzebra
-Fat Zebra / Paystream driver for the Omnipay PHP payment processing library
 
 **Fat Zebra / Paystream driver for the Omnipay PHP payment processing library**
 
