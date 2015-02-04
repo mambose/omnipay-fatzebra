@@ -43,6 +43,17 @@ repository.  There are also examples in the class API documentation.
 * Recurring Payments
 * Hosted Payments
 
+## API Documentation
+
+You can build the API documentation after running composer update, by using this command
+(on Linux/Unix systems):
+
+./makedoc.sh
+
+The API documentation will be built in documents/main in HTML format.
+
+The [API documentation is also hosted here](http://www.babel.com.au/docs/omnipay-fatzebra/namespace-Omnipay.Fatzebra.html)
+
 ## Support
 
 If you are having general issues with Omnipay, we suggest posting on
