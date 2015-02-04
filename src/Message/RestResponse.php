@@ -11,6 +11,8 @@ use Omnipay\Common\Message\RequestInterface;
 /**
  * Fat Zebra REST Response
  *
+ * This is the response class for all Fat Zebra REST requests.
+ *
  * @see \Omnipay\Fatzebra\FatzebraGateway
  */
 class RestResponse extends AbstractResponse

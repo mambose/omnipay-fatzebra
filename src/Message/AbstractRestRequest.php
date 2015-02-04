@@ -10,6 +10,8 @@ use Guzzle\Http\EntityBody;
 /**
  * Fat Zebra Abstract REST Request
  *
+ * This is the parent class for all Fat Zebra REST requests.
+ *
  * Test modes:
  *
  * There are two test modes in the Paystream system - one is a

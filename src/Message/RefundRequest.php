@@ -33,9 +33,9 @@ namespace Omnipay\Fatzebra\Message;
  *   }
  * </code>
  *
- * @link http://www.paystream.com.au/developer-guides/
  * @see PurchaseRequest
- * @see \Omnipay\Fatzebra\FatzebraGateway
+ * @see Omnipay\Fatzebra\FatzebraGateway
+ * @link http://www.paystream.com.au/developer-guides/
  */
 class RefundRequest extends AbstractRestRequest
 {
