@@ -51,6 +51,22 @@ class PurchaseRequestTest extends TestCase
         $this->assertSame($card->getNumber(), $data['card_number']);
         $this->assertSame($card->getExpiryDate('m/Y'), $data['card_expiry']);
         $this->assertSame($card->getCvv(), $data['cvv']);
+
+        $this->request = new PurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
+        $this->request->initialize(array(
+            'amount' => '10.00',
+            'transactionReference' => 'TestReference999',
+            'cardReference' => 'abc1234',
+        ));
+
+        $this->request->setTransactionId('525-P-S2Y05UQ9');
+        $this->request->setClientIp('127.0.0.1');
+
+        $data = $this->request->getData();
+
+        $this->assertSame('10.00', $data['amount']);
+
+        $this->assertSame('abc1234', $data['card_token']);
     }
 
 }

@@ -211,4 +211,44 @@ class FatzebraGateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\Fatzebra\Message\CreateCardRequest', $parameters);
     }
+
+    //
+    // Recurring Purchases -- Creating Plans, etc
+    // TODO: This is only partially finished -- need to add customers, subscriptions
+    // etc.
+    //
+
+    /**
+     * Create a plan
+     *
+     * @link http://www.paystream.com.au/developer-guides/
+     * @param array $parameters
+     * @return \Omnipay\Fatzebra\Message\CreatePlanRequest
+     */
+    public function createPlan(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Fatzebra\Message\CreatePlanRequest', $parameters);
+    }
+
+    /**
+     * Fetch details of a plan
+     *
+     * @param array $parameters
+     * @return \Omnipay\Fatzebra\Message\FetchPlanRequest
+     */
+    public function fetchPlan(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Fatzebra\Message\FetchPlanRequest', $parameters);
+    }
+
+    /**
+     * Fetch all plans
+     *
+     * @param array $parameters
+     * @return \Omnipay\Fatzebra\Message\FetchAllPlansRequest
+     */
+    public function fetchAllPlans(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Fatzebra\Message\FetchAllPlansRequest', $parameters);
+    }
 }

@@ -11,7 +11,8 @@ namespace Omnipay\Fatzebra\Message;
  * In order to create a purchase you must submit the following details:
  *
  * * Amount (numerical)
- * * Reference (string - maximum 30 characters)
+ * * Reference (string - maximum 30 characters) -- this must be unique.  More
+ *   than one transaction using the same Reference value will raise an error.
  * * Customer IP (RFC standard IP address)
  *
  * Either

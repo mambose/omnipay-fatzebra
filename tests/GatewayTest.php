@@ -73,4 +73,43 @@ class GatewayTest extends GatewayTestCase
         $this->assertEquals('hmx8o839', $response->getTransactionReference());
         $this->assertEmpty($response->getMessage());
     }
+
+    public function testCreatePlan()
+    {
+        $this->setMockHttpResponse('CreatePlanSuccess.txt');
+
+        $response = $this->gateway->createPlan(array(
+            "name"                  => "Gold Membership",
+            "amount"                => 100.00,
+            "transactionReference"  => "Gold-1",
+            "description"           => "Gold level membership",
+        ))->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals('525-PL-IN37ICBK', $response->getTransactionReference());
+        $this->assertEmpty($response->getMessage());
+    }
+
+    public function testFetchAllPlans()
+    {
+        $this->setMockHttpResponse('FetchAllPlansSuccess.txt');
+
+        $response = $this->gateway->fetchAllPlans()->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEmpty($response->getMessage());
+    }
+
+    public function testFetchPlan()
+    {
+        $this->setMockHttpResponse('FetchPlanSuccess.txt');
+
+        $response = $this->gateway->fetchPlan(array(
+           'transactionReference'  => '525-PL-IN37ICBK',
+        ))->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals('525-PL-IN37ICBK', $response->getTransactionReference());
+        $this->assertEmpty($response->getMessage());
+    }
 }
