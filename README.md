@@ -33,13 +33,13 @@ The following transactions are provided by this package via the REST API:
 * Create a purchase
 * Retrieve a purchase
 * Refund a purchase
+* Tokenizing a card and using a stored token
 
 For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay)
 repository.  There are also examples in the class API documentation.
 
 ## TODO
 
-* Token Payments
 * Recurring Payments
 * Hosted Payments
 
