@@ -34,8 +34,8 @@ namespace Omnipay\Fatzebra\Message;
  *
  *   // Initialise the gateway
  *   $gateway->initialize(array(
- *       'username' => 'TESTasdfasdfasdf',
- *       'token'    => 'asdfasdfasdfasdfasdf',
+ *       'username' => 'TEST',
+ *       'token'    => 'TEST',
  *       'testMode' => true, // Or false when you are ready for live transactions
  *   ));
  *
@@ -66,6 +66,7 @@ namespace Omnipay\Fatzebra\Message;
  * </code>
  *
  * @link http://www.paystream.com.au/developer-guides/
+ * @see \Omnipay\Fatzebra\FatzebraGateway
  */
 class PurchaseRequest extends AbstractRestRequest
 {

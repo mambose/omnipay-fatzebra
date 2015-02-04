@@ -23,6 +23,7 @@ namespace Omnipay\Fatzebra\Message;
  *
  * @see PurchaseRequest
  * @link http://www.paystream.com.au/developer-guides/
+ * @see \Omnipay\Fatzebra\FatzebraGateway
  */
 class FetchTransactionRequest extends AbstractRestRequest
 {

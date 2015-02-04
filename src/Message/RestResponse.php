@@ -10,6 +10,8 @@ use Omnipay\Common\Message\RequestInterface;
 
 /**
  * Fat Zebra REST Response
+ *
+ * @see \Omnipay\Fatzebra\FatzebraGateway
  */
 class RestResponse extends AbstractResponse
 {

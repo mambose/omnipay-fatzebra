@@ -19,8 +19,8 @@ use Omnipay\Common\AbstractGateway;
  *
  *   // Initialise the gateway
  *   $gateway->initialize(array(
- *       'username' => 'TESTasdfasdfasdf',
- *       'token'    => 'asdfasdfasdfasdfasdf',
+ *       'username' => 'TEST',
+ *       'token'    => 'TEST',
  *       'testMode' => true, // Or false when you are ready for live transactions
  *   ));
  *
@@ -66,6 +66,22 @@ use Omnipay\Common\AbstractGateway;
  *
  * Currently this class makes the assumption that if the testMode
  * flag is set then the Sandbox Environment is being used.
+ *
+ * Authentication:
+ *
+ * Authentication is by means of a username / token pair.  For each
+ * username / token there will also be a "shared secret" which is
+ * not used by this gateway, but is instead used by the Direct Post
+ * gateway (see https://docs.fatzebra.com.au/direct).
+ *
+ * Developers can get in touch with Fat Zebra (see the contact page
+ * at https://www.fatzebra.com.au/contact) directly to get their own
+ * test account details. There is however generic test account details
+ * available within the API Documentation. Please see these details below.
+ *
+ * * username: TEST
+ * * token: TEST
+ * * Shared Secret: 033bd94b11
  *
  * @see \Omnipay\Common\AbstractGateway
  * @see \Omnipay\Fatzebra\Message\AbstractRestRequest
