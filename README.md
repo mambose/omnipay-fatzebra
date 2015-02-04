@@ -48,7 +48,9 @@ repository.  There are also examples in the class API documentation.
 You can build the API documentation after running composer update, by using this command
 (on Linux/Unix systems):
 
+```
 ./makedoc.sh
+```
 
 The API documentation will be built in documents/main in HTML format.
 
