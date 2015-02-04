@@ -35,4 +35,22 @@ class PurchaseRequestTest extends TestCase
         $this->assertSame($card->getCvv(), $data['cvv']);
     }
 
+    public function testStoreCard()
+    {
+        $card = new CreditCard($this->getValidCard());
+        $card->setStartMonth(1);
+        $card->setStartYear(2000);
+
+        $this->request = new CreateCardRequest($this->getHttpClient(), $this->getHttpRequest());
+        $this->request->initialize(array(
+            'card' => $card
+        ));
+
+        $data = $this->request->getData();
+
+        $this->assertSame($card->getNumber(), $data['card_number']);
+        $this->assertSame($card->getExpiryDate('m/Y'), $data['card_expiry']);
+        $this->assertSame($card->getCvv(), $data['cvv']);
+    }
+
 }

@@ -158,6 +158,10 @@ class FatzebraGateway extends AbstractGateway
         return $this->setParameter('token', $value);
     }
 
+    //
+    // Direct API Purchase Calls -- purchase, refund
+    //
+
     /**
      * Create a purchase request.
      *
@@ -189,5 +193,22 @@ class FatzebraGateway extends AbstractGateway
     public function refund(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\Fatzebra\Message\RefundRequest', $parameters);
+    }
+
+    //
+    // Token Payment Calls -- createCard
+    // There is no facility in the Fat Zebra gateway to update or delete a stored card.
+    //
+
+    /**
+     * Tokenize a card
+     *
+     * @link http://www.paystream.com.au/developer-guides/
+     * @param array $parameters
+     * @return \Omnipay\Fatzebra\Message\CreateCardRequest
+     */
+    public function createCard(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Fatzebra\Message\CreateCardRequest', $parameters);
     }
 }

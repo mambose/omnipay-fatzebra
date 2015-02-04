@@ -13,17 +13,18 @@ class GatewayTest extends GatewayTestCase
 
         $this->gateway = new FatzebraGateway($this->getHttpClient(), $this->getHttpRequest());
 
+        $this->card = new CreditCard(array(
+            'firstName' => 'Example',
+            'lastName' => 'User',
+            'number' => '4111111111111111',
+            'expiryMonth' => '12',
+            'expiryYear' => '2016',
+            'cvv' => '123',
+        ));
         $this->options = array(
             'amount' => '10.00',
             'transactionReference' => '123412341234',
-            'card' => new CreditCard(array(
-                'firstName' => 'Example',
-                'lastName' => 'User',
-                'number' => '4111111111111111',
-                'expiryMonth' => '12',
-                'expiryYear' => '2016',
-                'cvv' => '123',
-            )),
+            'card' => $this->card,
         );
     }
 
@@ -60,4 +61,16 @@ class GatewayTest extends GatewayTestCase
         $this->assertEmpty($response->getMessage());
     }
 
+    public function testCreateCard()
+    {
+        $this->setMockHttpResponse('CreateCardSuccess.txt');
+
+        $response = $this->gateway->createCard(array(
+            'card'      => $this->card,
+        ))->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals('hmx8o839', $response->getTransactionReference());
+        $this->assertEmpty($response->getMessage());
+    }
 }

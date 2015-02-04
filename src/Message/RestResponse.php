@@ -50,6 +50,11 @@ class RestResponse extends AbstractResponse
             return $this->data['response']['id'];
         }
 
+        // This is correct for tokenize
+        if (!empty($this->data['response']) && !empty($this->data['response']['token'])) {
+            return $this->data['response']['token'];
+        }
+
         return null;
     }
 
