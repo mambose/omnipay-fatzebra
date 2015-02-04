@@ -43,6 +43,10 @@ repository.  There are also examples in the class API documentation.
 * Recurring Payments
 * Hosted Payments
 
+## Unit Testing
+
+Travis-CI runs the phpcs and phpunit test jobs.  The current status [can be seen here](https://travis-ci.org/delatbabel/omnipay-fatzebra).
+
 ## API Documentation
 
 You can build the API documentation after running composer update, by using this command
