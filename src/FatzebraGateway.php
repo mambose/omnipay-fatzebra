@@ -255,7 +255,7 @@ class FatzebraGateway extends AbstractGateway
     // There is no current method to update a plan -- the gateway supports it
     // but only the plan name and description can be updated, none of the other
     // fields (such as amount).  Therefore probably the best idea is to just
-    // create a new plan.  If someone wants to implement updatePlan then do so. 
+    // create a new plan.  If someone wants to implement updatePlan then do so.
 
     //
     // Create/Update customer methods.  Here we represent a customer by a
