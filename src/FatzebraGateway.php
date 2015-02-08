@@ -251,4 +251,26 @@ class FatzebraGateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\Fatzebra\Message\FetchAllPlansRequest', $parameters);
     }
+    
+    // There is no current method to update a plan -- the gateway supports it
+    // but only the plan name and description can be updated, none of the other
+    // fields (such as amount).  Therefore probably the best idea is to just
+    // create a new plan.  If someone wants to implement updatePlan then do so. 
+
+    //
+    // Create/Update customer methods.  Here we represent a customer by a
+    // CreditCard object because they contain much the same information.
+    //
+
+    /**
+     * Create a customer
+     *
+     * @link http://www.paystream.com.au/developer-guides/
+     * @param array $parameters
+     * @return \Omnipay\Fatzebra\Message\CreateCustomerRequest
+     */
+    public function createCustomer(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Fatzebra\Message\CreateCustomerRequest', $parameters);
+    }
 }

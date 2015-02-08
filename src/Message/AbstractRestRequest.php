@@ -39,21 +39,12 @@ abstract class AbstractRestRequest extends \Omnipay\Common\Message\AbstractReque
     /**
      * Sandbox Endpoint URL
      *
-     * The PayPal REST APIs are supported in two environments. Use the Sandbox environment
-     * for testing purposes, then move to the live environment for production processing.
-     * When testing, generate an access token with your test credentials to make calls to
-     * the Sandbox URIs. When you’re set to go live, use the live credentials assigned to
-     * your app to generate a new access token to be used with the live URIs.
-     *
      * @var string URL
      */
     protected $testEndpoint = 'https://gateway.sandbox.fatzebra.com.au';
 
     /**
      * Live Endpoint URL
-     *
-     * When you’re set to go live, use the live credentials assigned to
-     * your app to generate a new access token to be used with the live URIs.
      *
      * @var string URL
      */
@@ -71,6 +62,11 @@ abstract class AbstractRestRequest extends \Omnipay\Common\Message\AbstractReque
         return 'POST';
     }
 
+    /**
+     * Get API endpoint URL
+     *
+     * @return string
+     */
     protected function getEndpoint()
     {
         $base = $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
