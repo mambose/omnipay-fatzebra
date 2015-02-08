@@ -47,7 +47,7 @@ namespace Omnipay\Fatzebra\Message;
  *   $response = $transaction->send();
  *   if ($response->isSuccessful()) {
  *       echo "createCard transaction was successful!\n";
- *       $card_id = $response->getTransactionReference();
+ *       $card_id = $response->getCardToken();
  *       echo "Card Token = " . $card_id . "\n";
  *   }
  * </code>
