@@ -314,4 +314,15 @@ class FatzebraGateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\Fatzebra\Message\CreateSubscriptionRequest', $parameters);
     }
+
+    /**
+     * Fetch details of a subscription
+     *
+     * @param array $parameters
+     * @return \Omnipay\Fatzebra\Message\FetchSubscriptionRequest
+     */
+    public function fetchSubscription(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Fatzebra\Message\FetchSubscriptionRequest', $parameters);
+    }
 }

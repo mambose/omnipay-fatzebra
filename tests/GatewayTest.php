@@ -192,4 +192,19 @@ class GatewayTest extends GatewayTestCase
         $this->assertEquals('525-C-G1ZKF1Y3', $response->getTransactionReference());
         $this->assertEmpty($response->getMessage());
     }
+
+    public function testFetchSubscription()
+    {
+        $this->setMockHttpResponse('FetchSubscriptionSuccess.txt');
+
+        $response = $this->gateway->fetchCustomer(array(
+           'transactionReference'  => '525-S-UQZHEXAT',
+        ))->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals('525-S-UQZHEXAT', $response->getSubscriptionToken());
+        $this->assertEquals('525-PL-HT6AMO6J', $response->getPlanToken());
+        $this->assertEquals('525-C-6CSDKGME', $response->getCustomerToken());
+        $this->assertEmpty($response->getMessage());
+    }
 }
