@@ -13,7 +13,7 @@ namespace Omnipay\Fatzebra\Message;
  * <code>
  *   // Fetch subscription
  *   $transaction = $gateway->fetchSubscription(array(
- *       'transactionReference'  => 'XXX-PL-YYYYYYY'
+ *       'transactionReference'  => 'XXX-S-YYYYYYY'
  *   ));
  *   $response = $transaction->send();
  *   $data = $response->getData();
