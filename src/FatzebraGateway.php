@@ -273,4 +273,26 @@ class FatzebraGateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\Fatzebra\Message\CreateCustomerRequest', $parameters);
     }
+
+    /**
+     * Fetch details of a customer
+     *
+     * @param array $parameters
+     * @return \Omnipay\Fatzebra\Message\FetchCustomerRequest
+     */
+    public function fetchCustomer(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Fatzebra\Message\FetchCustomerRequest', $parameters);
+    }
+
+    /**
+     * Delete a customer
+     *
+     * @param array $parameters
+     * @return \Omnipay\Fatzebra\Message\DeleteCustomerRequest
+     */
+    public function deleteCustomer(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Fatzebra\Message\DeleteCustomerRequest', $parameters);
+    }
 }

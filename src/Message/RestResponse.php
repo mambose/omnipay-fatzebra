@@ -55,13 +55,18 @@ class RestResponse extends AbstractResponse
             return $this->data['response']['token'];
         }
 
+        // This is correct for create customer
+        if (!empty($this->data['response']) && !empty($this->data['response']['card_token'])) {
+            return $this->data['response']['card_token'];
+        }
+
         return null;
     }
 
     /**
      * Get Card Token
      *
-     * This is used after createCard to get the credit card token to be
+     * This is used after createCard or createCustomer to get the credit card token to be
      * used in future transactions.
      *
      * @return string
@@ -70,6 +75,9 @@ class RestResponse extends AbstractResponse
     {
         if (isset($this->data['response']['token'])) {
             return $this->data['response']['token'];
+        }
+        if (isset($this->data['response']['card_token'])) {
+            return $this->data['response']['card_token'];
         }
     }
 

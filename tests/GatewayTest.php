@@ -112,4 +112,64 @@ class GatewayTest extends GatewayTestCase
         $this->assertEquals('525-PL-IN37ICBK', $response->getTransactionReference());
         $this->assertEmpty($response->getMessage());
     }
+
+    public function testCreateCustomer()
+    {
+        $this->setMockHttpResponse('CreateCustomerSuccess.txt');
+
+        // Create a credit card object
+        // This card can be used for testing.
+        $card = new CreditCard(array(
+                    'firstName'             => 'Example',
+                    'lastName'              => 'Customer',
+                    'number'                => '4005550000000001',
+                    'expiryMonth'           => '05',
+                    'expiryYear'            => '2020',
+                    'cvv'                   => '987',
+                    'billingAddress1'       => '1 Lower Creek Road',
+                    'billingCountry'        => 'AU',
+                    'billingCity'           => 'Scrubby Creek',
+                    'billingPostcode'       => '4999',
+                    'billingState'          => 'QLD',
+                    'email'                 => 'testcust@example.com',
+        ));
+     
+        // Do a create customer transaction on the gateway
+        $response = $this->gateway->createCustomer(array(
+            'transactionReference'     => 'TestCust1234',
+            'clientIp'                 => '127.0.0.1',
+            'card'                     => $card,
+        ))->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals('525-C-G1ZKF1Y3', $response->getCustomerToken());
+        $this->assertEquals('daers4x6', $response->getCardToken());
+        $this->assertEmpty($response->getMessage());
+    }
+
+    public function testFetchCustomer()
+    {
+        $this->setMockHttpResponse('FetchCustomerSuccess.txt');
+
+        $response = $this->gateway->fetchCustomer(array(
+           'transactionReference'  => '525-C-G1ZKF1Y3',
+        ))->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals('525-C-G1ZKF1Y3', $response->getTransactionReference());
+        $this->assertEmpty($response->getMessage());
+    }
+
+    public function testDeleteCustomer()
+    {
+        $this->setMockHttpResponse('DeleteCustomerSuccess.txt');
+
+        $response = $this->gateway->deleteCustomer(array(
+           'transactionReference'  => '525-C-G1ZKF1Y3',
+        ))->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals('525-C-G1ZKF1Y3', $response->getTransactionReference());
+        $this->assertEmpty($response->getMessage());
+    }
 }
