@@ -197,7 +197,7 @@ class GatewayTest extends GatewayTestCase
     {
         $this->setMockHttpResponse('FetchSubscriptionSuccess.txt');
 
-        $response = $this->gateway->fetchCustomer(array(
+        $response = $this->gateway->fetchSubscription(array(
            'transactionReference'  => '525-S-UQZHEXAT',
         ))->send();
 
