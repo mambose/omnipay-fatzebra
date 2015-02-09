@@ -77,8 +77,8 @@ namespace Omnipay\Fatzebra\Message;
  *   $response = $transaction->send();
  *   if ($response->isSuccessful()) {
  *       echo "createSubscription transaction was successful!\n";
- *       $subscription_id = $response->getTransactionReference();
- *       echo "Subscription Reference = " . $subscription_id . "\n";
+ *       $subscription_id = $response->getSubscriptionToken();
+ *       echo "Subscription Token = " . $subscription_id . "\n";
  *   }
  * </code>
  *

@@ -104,7 +104,7 @@ class RestResponse extends AbstractResponse
     /**
      * Get Plan Token
      *
-     * This is used after createPlan to get the customer token to be
+     * This is used after createPlan to get the plan token to be
      * used in future transactions.
      *
      * @return string
@@ -113,6 +113,21 @@ class RestResponse extends AbstractResponse
     {
         if (isset($this->data['response']['plan'])) {
             return $this->data['response']['plan'];
+        }
+    }
+
+    /**
+     * Get Subscription Token
+     *
+     * This is used after createSubscription to get the subscription token to be
+     * used in future transactions.
+     *
+     * @return string
+     */
+    public function getSubscriptionToken()
+    {
+        if (isset($this->data['response']['id'])) {
+            return $this->data['response']['id'];
         }
     }
 

@@ -176,6 +176,7 @@ class GatewayTest extends GatewayTestCase
 
         $this->assertTrue($response->isSuccessful());
         $this->assertEquals('525-PL-HT6AMO6J', $response->getPlanToken());
+        $this->assertEquals('525-S-DYVABJ3L', $response->getSubscriptionToken());
         $this->assertEmpty($response->getMessage());
     }
 
