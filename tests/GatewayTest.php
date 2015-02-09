@@ -160,6 +160,25 @@ class GatewayTest extends GatewayTestCase
         $this->assertEmpty($response->getMessage());
     }
 
+    public function testCreateSubscription()
+    {
+        $this->setMockHttpResponse('CreateSubscriptionSuccess.txt');
+        
+        $gateway = $this->gateway;
+
+        $response = $this->gateway->createSubscription(array(
+            'customerToken'            => '525-C-G1ZKF1Y3',
+            'planToken'                => '525-PL-IN37ICBK',
+            'frequency'                => $gateway::FREQUENCY_WEEKLY,
+            'startDate'                => new \DateTime('tomorrow'),
+            'transactionReference'     => 'TestSubscription123456',
+        ))->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals('525-PL-HT6AMO6J', $response->getPlanToken());
+        $this->assertEmpty($response->getMessage());
+    }
+
     public function testDeleteCustomer()
     {
         $this->setMockHttpResponse('DeleteCustomerSuccess.txt');

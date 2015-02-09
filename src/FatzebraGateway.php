@@ -90,7 +90,8 @@ use Omnipay\Common\AbstractGateway;
  */
 class FatzebraGateway extends AbstractGateway
 {
-    public $transparentRedirect = true;
+    const FREQUENCY_WEEKLY  = 'Weekly';
+    const FREQUENCY_MONTHLY = 'Monthly';
 
     /**
      * Get the gateway display name
@@ -294,5 +295,23 @@ class FatzebraGateway extends AbstractGateway
     public function deleteCustomer(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\Fatzebra\Message\DeleteCustomerRequest', $parameters);
+    }
+
+    //
+    // Create/Update subscription methods.
+    //
+
+    /**
+     * Create a subscription
+     *
+     * A subscription is an instance of a customer subscribing to a plan.
+     *
+     * @link http://www.paystream.com.au/developer-guides/
+     * @param array $parameters
+     * @return \Omnipay\Fatzebra\Message\CreateSubscriptionRequest
+     */
+    public function createSubscription(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Fatzebra\Message\CreateSubscriptionRequest', $parameters);
     }
 }

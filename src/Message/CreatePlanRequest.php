@@ -41,8 +41,8 @@ namespace Omnipay\Fatzebra\Message;
  *   $response = $transaction->send();
  *   if ($response->isSuccessful()) {
  *       echo "Create Plan transaction was successful!\n";
- *       $sale_id = $response->getTransactionReference();
- *       echo "Transaction reference = " . $sale_id . "\n";
+ *       $plan_id = $response->getTransactionReference();
+ *       echo "Plan reference = " . $plan_id . "\n";
  *   }
  * </code>
  *

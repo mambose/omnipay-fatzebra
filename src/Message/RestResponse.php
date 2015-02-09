@@ -60,6 +60,11 @@ class RestResponse extends AbstractResponse
             return $this->data['response']['card_token'];
         }
 
+        // This is correct for create plan
+        if (!empty($this->data['response']) && !empty($this->data['response']['plan'])) {
+            return $this->data['response']['plan'];
+        }
+
         return null;
     }
 
@@ -93,6 +98,21 @@ class RestResponse extends AbstractResponse
     {
         if (isset($this->data['response']['id'])) {
             return $this->data['response']['id'];
+        }
+    }
+
+    /**
+     * Get Plan Token
+     *
+     * This is used after createPlan to get the customer token to be
+     * used in future transactions.
+     *
+     * @return string
+     */
+    public function getPlanToken()
+    {
+        if (isset($this->data['response']['plan'])) {
+            return $this->data['response']['plan'];
         }
     }
 
