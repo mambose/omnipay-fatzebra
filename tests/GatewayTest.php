@@ -142,8 +142,8 @@ class GatewayTest extends GatewayTestCase
         ))->send();
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertEquals('525-C-G1ZKF1Y3', $response->getCustomerToken());
-        $this->assertEquals('daers4x6', $response->getCardToken());
+        $this->assertEquals('525-C-G1ZKF1Y3', $response->getCustomerReference());
+        $this->assertEquals('daers4x6', $response->getCardReference());
         $this->assertEmpty($response->getMessage());
     }
 
@@ -167,16 +167,16 @@ class GatewayTest extends GatewayTestCase
         $gateway = $this->gateway;
 
         $response = $this->gateway->createSubscription(array(
-            'customerToken'            => '525-C-G1ZKF1Y3',
-            'planToken'                => '525-PL-IN37ICBK',
+            'customerReference'            => '525-C-G1ZKF1Y3',
+            'planReference'                => '525-PL-IN37ICBK',
             'frequency'                => $gateway::FREQUENCY_WEEKLY,
             'startDate'                => new \DateTime('tomorrow'),
             'transactionReference'     => 'TestSubscription123456',
         ))->send();
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertEquals('525-PL-HT6AMO6J', $response->getPlanToken());
-        $this->assertEquals('525-S-DYVABJ3L', $response->getSubscriptionToken());
+        $this->assertEquals('525-PL-HT6AMO6J', $response->getPlanReference());
+        $this->assertEquals('525-S-DYVABJ3L', $response->getSubscriptionReference());
         $this->assertEmpty($response->getMessage());
     }
 
@@ -202,9 +202,9 @@ class GatewayTest extends GatewayTestCase
         ))->send();
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertEquals('525-S-UQZHEXAT', $response->getSubscriptionToken());
-        $this->assertEquals('525-PL-HT6AMO6J', $response->getPlanToken());
-        $this->assertEquals('525-C-6CSDKGME', $response->getCustomerToken());
+        $this->assertEquals('525-S-UQZHEXAT', $response->getSubscriptionReference());
+        $this->assertEquals('525-PL-HT6AMO6J', $response->getPlanReference());
+        $this->assertEquals('525-C-6CSDKGME', $response->getCustomerReference());
         $this->assertEmpty($response->getMessage());
     }
 }
