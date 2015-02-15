@@ -47,8 +47,8 @@ namespace Omnipay\Fatzebra\Message;
  *   $response = $transaction->send();
  *   if ($response->isSuccessful()) {
  *       echo "createCard transaction was successful!\n";
- *       $card_id = $response->getCardToken();
- *       echo "Card Token = " . $card_id . "\n";
+ *       $card_id = $response->getCardReference();
+ *       echo "Card Reference = " . $card_id . "\n";
  *   }
  * </code>
  *
@@ -73,7 +73,7 @@ class CreateCardRequest extends AbstractRestRequest
     /**
      * Get transaction endpoint.
      *
-     * Tokenizes are created using the /purchases resource.
+     * Cards are created using the /credit_cards resource.
      *
      * @return string
      */

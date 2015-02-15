@@ -10,7 +10,7 @@ namespace Omnipay\Fatzebra\Message;
  *
  * To create a new subscription the following details are required:
  *
- * * customer ID (getCustomerToken from a CreateCustomerRequest response)
+ * * customer ID (getCustomerReference from a CreateCustomerRequest response)
  * * plan ID (getTransactionReference from a CreatePlanRequest response)
  * * frequency
  * * start_date
@@ -54,7 +54,7 @@ namespace Omnipay\Fatzebra\Message;
  *       'card'                     => $card,
  *   ));
  *   $response = $transaction->send();
- *   $customer_id = $response->getCustomerToken();
+ *   $customer_id = $response->getCustomerReference();
  *
  *   // Do a create plan transaction on the gateway
  *   $transaction = $gateway->CreatePlan(array(
@@ -68,8 +68,8 @@ namespace Omnipay\Fatzebra\Message;
  *
  *   // Do a create subscription transaction on the gateway
  *   $transaction = $gateway->createSubscription(array(
- *       'customerToken'            => $customer_id,
- *       'planToken'                => $plan_id,
+ *       'customerReference'            => $customer_id,
+ *       'planReference'                => $plan_id,
  *       'frequency'                => $gateway::FREQUENCY_WEEKLY,
  *       'startDate'                => new \DateTime('tomorrow'),
  *       'transactionReference'     => 'TestSubscription',
@@ -77,8 +77,8 @@ namespace Omnipay\Fatzebra\Message;
  *   $response = $transaction->send();
  *   if ($response->isSuccessful()) {
  *       echo "createSubscription transaction was successful!\n";
- *       $subscription_id = $response->getSubscriptionToken();
- *       echo "Subscription Token = " . $subscription_id . "\n";
+ *       $subscription_id = $response->getSubscriptionReference();
+ *       echo "Subscription Reference = " . $subscription_id . "\n";
  *   }
  * </code>
  *
@@ -89,10 +89,10 @@ class CreateSubscriptionRequest extends AbstractRestRequest
 {
     public function getData()
     {
-        $this->validate('customerToken', 'planToken', 'frequency', 'startDate', 'transactionReference');
+        $this->validate('customerReference', 'planReference', 'frequency', 'startDate', 'transactionReference');
         $data = array(
-            'customer'      => $this->getCustomerToken(),
-            'plan'          => $this->getPlanToken(),
+            'customer'      => $this->getCustomerReference(),
+            'plan'          => $this->getPlanReference(),
             'frequency'     => $this->getFrequency(),
             'start_date'    => $this->getStartDate()->format('Y-m-d'),
             'reference'     => $this->getTransactionReference(),
@@ -104,7 +104,7 @@ class CreateSubscriptionRequest extends AbstractRestRequest
     /**
      * Get transaction endpoint.
      *
-     * Tokenizes are created using the /purchases resource.
+     * Referenceizes are created using the /purchases resource.
      *
      * @return string
      */
@@ -118,9 +118,9 @@ class CreateSubscriptionRequest extends AbstractRestRequest
      *
      * @return string
      */
-    public function getCustomerToken()
+    public function getCustomerReference()
     {
-        return $this->getParameter('customerToken');
+        return $this->getParameter('customerReference');
     }
 
     /**
@@ -128,9 +128,9 @@ class CreateSubscriptionRequest extends AbstractRestRequest
      *
      * @return CreateSubscriptionRequest provides a fluent interface.
      */
-    public function setCustomerToken($value)
+    public function setCustomerReference($value)
     {
-        return $this->setParameter('customerToken', $value);
+        return $this->setParameter('customerReference', $value);
     }
 
     /**
@@ -138,9 +138,9 @@ class CreateSubscriptionRequest extends AbstractRestRequest
      *
      * @return string
      */
-    public function getPlanToken()
+    public function getPlanReference()
     {
-        return $this->getParameter('planToken');
+        return $this->getParameter('planReference');
     }
 
     /**
@@ -148,9 +148,9 @@ class CreateSubscriptionRequest extends AbstractRestRequest
      *
      * @return CreateSubscriptionRequest provides a fluent interface.
      */
-    public function setPlanToken($value)
+    public function setPlanReference($value)
     {
-        return $this->setParameter('planToken', $value);
+        return $this->setParameter('planReference', $value);
     }
 
     /**

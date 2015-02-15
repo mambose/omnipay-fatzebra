@@ -69,14 +69,14 @@ class RestResponse extends AbstractResponse
     }
 
     /**
-     * Get Card Token
+     * Get Card Reference
      *
      * This is used after createCard or createCustomer to get the credit card token to be
      * used in future transactions.
      *
      * @return string
      */
-    public function getCardToken()
+    public function getCardReference()
     {
         if (isset($this->data['response']['token'])) {
             return $this->data['response']['token'];
@@ -87,14 +87,14 @@ class RestResponse extends AbstractResponse
     }
 
     /**
-     * Get Customer Token
+     * Get Customer Reference
      *
      * This is used after createCustomer to get the customer token to be
      * used in future transactions.
      *
      * @return string
      */
-    public function getCustomerToken()
+    public function getCustomerReference()
     {
         if (isset($this->data['response']['customer'])) {
             return $this->data['response']['customer'];
@@ -105,14 +105,14 @@ class RestResponse extends AbstractResponse
     }
 
     /**
-     * Get Plan Token
+     * Get Plan Reference
      *
      * This is used after createPlan to get the plan token to be
      * used in future transactions.
      *
      * @return string
      */
-    public function getPlanToken()
+    public function getPlanReference()
     {
         if (isset($this->data['response']['plan'])) {
             return $this->data['response']['plan'];
@@ -120,14 +120,14 @@ class RestResponse extends AbstractResponse
     }
 
     /**
-     * Get Subscription Token
+     * Get Subscription Reference
      *
      * This is used after createSubscription to get the subscription token to be
      * used in future transactions.
      *
      * @return string
      */
-    public function getSubscriptionToken()
+    public function getSubscriptionReference()
     {
         if (isset($this->data['response']['id'])) {
             return $this->data['response']['id'];
