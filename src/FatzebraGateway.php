@@ -148,6 +148,7 @@ class FatzebraGateway extends AbstractGateway
      *
      * Note that all test usernames begin with the word TEST in upper case.
      *
+     * @param string $value
      * @return FatzebraGateway provides a fluent interface.
      */
     public function setUsername($value)
@@ -168,6 +169,7 @@ class FatzebraGateway extends AbstractGateway
     /**
      * Set the gateway token -- used as the password in HTTP Basic Auth
      *
+     * @param string $value
      * @return FatzebraGateway provides a fluent interface.
      */
     public function setToken($value)
