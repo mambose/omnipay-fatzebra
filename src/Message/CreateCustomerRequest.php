@@ -60,7 +60,7 @@ namespace Omnipay\Fatzebra\Message;
  *
  *   // Do a create customer transaction on the gateway
  *   $transaction = $gateway->createCustomer(array(
- *       'transactionReference'     => 'TestCustomer',
+ *       'transactionId'            => 'TestCustomer1234',
  *       'clientIp'                 => $_SERVER['REMOTE_ADDR'],
  *       'card'                     => $card,
  *   ));
