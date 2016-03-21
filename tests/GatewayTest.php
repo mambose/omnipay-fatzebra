@@ -23,7 +23,7 @@ class GatewayTest extends GatewayTestCase
         ));
         $this->options = array(
             'amount' => '10.00',
-            'transactionReference' => '123412341234',
+            'transactionId' => '123412341234',
             'card' => $this->card,
         );
     }
@@ -36,7 +36,7 @@ class GatewayTest extends GatewayTestCase
 
         $this->assertTrue($response->isSuccessful());
         $this->assertEquals('525-P-S2Y05UQ9', $response->getTransactionReference());
-        $this->assertEmpty($response->getMessage());
+        $this->assertEquals('Approved', $response->getMessage());
     }
 
     public function testFetchTransaction()
@@ -58,7 +58,7 @@ class GatewayTest extends GatewayTestCase
 
         $this->assertTrue($response->isSuccessful());
         $this->assertEquals('525-R-XIVU3L9U', $response->getTransactionReference());
-        $this->assertEmpty($response->getMessage());
+        $this->assertEquals('Approved', $response->getMessage());
     }
 
     public function testCreateCard()
@@ -133,7 +133,7 @@ class GatewayTest extends GatewayTestCase
                     'billingState'          => 'QLD',
                     'email'                 => 'testcust@example.com',
         ));
-     
+
         // Do a create customer transaction on the gateway
         $response = $this->gateway->createCustomer(array(
             'transactionReference'     => 'TestCust1234',
@@ -163,7 +163,7 @@ class GatewayTest extends GatewayTestCase
     public function testCreateSubscription()
     {
         $this->setMockHttpResponse('CreateSubscriptionSuccess.txt');
-        
+
         $gateway = $this->gateway;
 
         $response = $this->gateway->createSubscription(array(
