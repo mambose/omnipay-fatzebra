@@ -31,15 +31,15 @@ class RestResponse extends AbstractResponse
         if ($this->getCode() >= 400) {
             return false;
         }
-        
+
         if (! empty($this->data['errors'])) {
             return false;
         }
-        
-        if (! empty($this->data['response']['successful'])) {
+
+        if (isset($this->data['response']['successful'])) {
             return $this->data['response']['successful'];
         }
-        
+
         return true;
     }
 
@@ -136,19 +136,23 @@ class RestResponse extends AbstractResponse
 
     public function getMessage()
     {
-        if (isset($this->data['errors'])) {
+        if (isset($this->data['errors']) && count($this->data['errors']) > 0) {
             return implode(', ', $this->data['errors']);
         }
 
         if (isset($this->data['response']['message'])) {
             return $this->data['response']['message'];
         }
-        
+
         return null;
     }
 
     public function getCode()
     {
+        if (isset($this->data['response']['response_code'])) {
+            return $this->data['response']['response_code'];
+        }
+
         return $this->statusCode;
     }
 }

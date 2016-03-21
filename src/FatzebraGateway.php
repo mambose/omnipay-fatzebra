@@ -15,7 +15,7 @@ use Omnipay\Common\AbstractGateway;
  * <code>
  *   // Create a gateway for the Fat Zebra REST Gateway
  *   // (routes to GatewayFactory::create)
- *   $gateway = Omnipay::create('FatzebraGateway');
+ *   $gateway = Omnipay::create('Fatzebra');
  *
  *   // Initialise the gateway
  *   $gateway->initialize(array(

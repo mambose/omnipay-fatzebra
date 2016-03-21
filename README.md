@@ -74,3 +74,13 @@ you can subscribe to.
 
 If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/delatbabel/omnipay-fatzebra/issues),
 or better yet, fork the library and submit a pull request.
+
+# Release Notes
+
+Version 2.1 includes the following changes:
+
+* When making a purchase set the transactionId to the merchant generated transaction reference instead
+  of setting transactionReference. This alings with the general Omnipay standards.
+* Failed transactions are now detected succesfully.
+* An error message from the response data is returned if no errors are returned separately.
+* The error code from the response data is returned as the result of getCode() instead of just the HTTP status code.

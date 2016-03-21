@@ -1,4 +1,5 @@
 .directory
-documents
-reports
-vendor
+/documents
+/reports
+/vendor
+/.idea/
