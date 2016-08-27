@@ -5,7 +5,7 @@ risky: false
 linting: true
 
 enabled:
-  - short_array_syntax
+  - long_array_syntax
   - align_double_arrow
   - binary_operator_spaces
   - no_empty_statement
