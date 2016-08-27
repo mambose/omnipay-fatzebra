@@ -128,7 +128,7 @@ class FatzebraGateway extends AbstractGateway
     {
         return array(
             'username' => '',
-            'token' => '',
+            'token'    => '',
             'testMode' => false,
         );
     }
