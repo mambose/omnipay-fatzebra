@@ -46,22 +46,22 @@ class RestResponse extends AbstractResponse
     public function getTransactionReference()
     {
         // This is usually correct for payments, authorizations, etc
-        if (!empty($this->data['response']) && !empty($this->data['response']['id'])) {
+        if (! empty($this->data['response']) && ! empty($this->data['response']['id'])) {
             return $this->data['response']['id'];
         }
 
         // This is correct for tokenize
-        if (!empty($this->data['response']) && !empty($this->data['response']['token'])) {
+        if (! empty($this->data['response']) && ! empty($this->data['response']['token'])) {
             return $this->data['response']['token'];
         }
 
         // This is correct for create customer
-        if (!empty($this->data['response']) && !empty($this->data['response']['card_token'])) {
+        if (! empty($this->data['response']) && ! empty($this->data['response']['card_token'])) {
             return $this->data['response']['card_token'];
         }
 
         // This is correct for create plan
-        if (!empty($this->data['response']) && !empty($this->data['response']['plan'])) {
+        if (! empty($this->data['response']) && ! empty($this->data['response']['plan'])) {
             return $this->data['response']['plan'];
         }
 
