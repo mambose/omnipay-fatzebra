@@ -3,6 +3,7 @@
 **Fat Zebra / Paystream driver for the Omnipay PHP payment processing library**
 
 [![Build Status](https://travis-ci.org/delatbabel/omnipay-fatzebra.png?branch=master)](https://travis-ci.org/delatbabel/omnipay-fatzebra)
+[![StyleCI](https://styleci.io/repos/30235887/shield)](https://styleci.io/repos/30235887)
 
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+. This package implements Fat Zebra / Paystream support for Omnipay.
